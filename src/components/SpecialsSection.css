@@ -1,0 +1,24 @@
+.specials {
+  text-align: center;
+  padding: 2rem;
+  background-color: #f0e4ff;
+}
+
+.specials h2 {
+  font-size: 2rem; /* Increased font size for heading */
+  margin-bottom: 1.5rem; /* Increased margin bottom for heading */
+  color: #6a0572; /* Adjusted heading color */
+}
+
+.specials p {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  color: #333; /* Adjusted paragraph text color */
+}
+
+.products {
+  display: grid; 
+  grid-template-columns: repeat(5, 1fr); 
+  gap: 5rem; 
+  justify-items: center; 
+}

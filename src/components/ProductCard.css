@@ -1,0 +1,42 @@
+.product-card {
+  border: 1px solid #d3c1e5;
+  padding: 1rem;
+  background-color: #ffffff;
+  text-align: center;
+  width: 200px;
+  height: 400px;
+  margin-top: 5rem;
+}
+
+.product-card .product-image {
+  margin-bottom: 1rem;
+}
+
+.product-card .product-image img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.product-card h3 {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  color: #6a0572;
+}
+
+.product-card p {
+  font-size: 0.875rem;
+  margin: 0; /* Set margin to zero */
+  padding-bottom: 0.25rem; /* Adjust padding as needed */
+}
+
+.product-card button {
+  padding: 0.5rem 1rem;
+  border: none;
+  color: white;
+  background-color: #ff85a2;
+  cursor: pointer;
+  margin: 0; /* Set margin to zero */
+  margin-top: 0.25rem; /* Add a small top margin if needed */
+}
