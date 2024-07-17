@@ -5,14 +5,14 @@
   padding: 2rem;
   color: #6a0572;
   position: relative;
-  background-color: #f8e1f4; /* Fallback color */
-  background-size: cover; /* Ensure the background image covers the entire section */
-  background-repeat: no-repeat; /* Prevent background image from repeating */
+  background-color: #f8e1f4; 
+  background-size: cover; 
+  background-repeat: no-repeat; 
 }
 
 .hero-content {
   max-width: 50%;
-  z-index: 1; /* Ensure content is above the background */
+  z-index: 1; 
 }
 
 .hero-content h1 {
@@ -39,5 +39,22 @@
   max-height: 500px;
   width: auto;
   height: auto;
-  margin-left: 100px; /* Adjust this value as needed */
+  margin-left: 100px; 
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-image img {
+    margin-left: 0;
+    max-width: 100%;
+  }
 }

@@ -5,20 +5,36 @@
 }
 
 .specials h2 {
-  font-size: 2rem; /* Increased font size for heading */
-  margin-bottom: 1.5rem; /* Increased margin bottom for heading */
-  color: #6a0572; /* Adjusted heading color */
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #6a0572;
 }
 
 .specials p {
-  font-size: 1rem;
-  margin-bottom: 2rem;
-  color: #333; /* Adjusted paragraph text color */
+  font-size: 1.05rem;
+  margin-bottom: 5rem;
+  color: #333;
 }
 
 .products {
-  display: grid; 
-  grid-template-columns: repeat(5, 1fr); 
-  gap: 5rem; 
-  justify-items: center; 
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 5rem;
+  justify-items: center;
+}
+
+@media (max-width: 768px) {
+  .products {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .specials h2 {
+    font-size: 1.5rem;
+  }
+
+  .specials p {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
 }

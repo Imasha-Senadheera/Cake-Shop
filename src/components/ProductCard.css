@@ -5,7 +5,7 @@
   text-align: center;
   width: 200px;
   height: 400px;
-  margin-top: 5rem;
+  margin-top: 1rem;
 }
 
 .product-card .product-image {
@@ -27,8 +27,8 @@
 
 .product-card p {
   font-size: 0.875rem;
-  margin: 0; /* Set margin to zero */
-  padding-bottom: 0.25rem; /* Adjust padding as needed */
+  margin: 0; 
+  padding-bottom: 0.25rem; 
 }
 
 .product-card button {
@@ -37,6 +37,17 @@
   color: white;
   background-color: #ff85a2;
   cursor: pointer;
-  margin: 0; /* Set margin to zero */
-  margin-top: 0.25rem; /* Add a small top margin if needed */
+  margin-top: -15rem; 
+}
+
+@media (max-width: 768px) {
+  .product-card {
+    width: 100%;
+    height: auto;
+    margin: 1rem 0;
+  }
+
+  .product-card button {
+    margin-top: 1rem;
+  }
 }

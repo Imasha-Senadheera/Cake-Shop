@@ -4,7 +4,7 @@ import './ProductCard.css';
 const ProductCard = ({ name, price, image }) => (
   <div className="product-card">
     <div className="product-image">
-      <img src={image} alt={name} /> {/* Use the image prop */}
+      <img src={image} alt={name} /> {/* Used the image prop */}
     </div>
     <h3>{name}</h3>
     <p>{price}</p>
