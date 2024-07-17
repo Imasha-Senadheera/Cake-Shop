@@ -1,38 +1,59 @@
-import React from "react"; // Import the React library
-import "./HeroSection.css"; // Import the CSS file for styling the HeroSection component
-import image1 from "../images/image1.png"; // Import the image to be used in the component
+import React, { useState } from "react";
+import "./HeroSection.css";
+import Modal from "./Modal";
+import image1 from "../images/image1.png";
 
-// Define the HeroSection functional component
-const HeroSection = () => (
-  // Render the section element with a class of "hero"
-  // Apply a background image using inline styles
+const HeroSection = () => {
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const [isRegisterOpen, setIsRegisterOpen] = useState(false);
 
-  <section
-    className="hero"
-    style={{ backgroundImage: `url(${require("../images/bg1.png")})` }}
-  >
-    
-    {/* Content within the hero section */}
-    <div className="hero-content">
-      <h1>Yummy sweeties delivered to your dining table!</h1>
-      <p>
-        Delight in our exquisite cakes and treats, crafted to perfection for
-        your enjoyment.
-      </p>
+  const openLoginModal = () => {
+    setIsLoginOpen(true);
+  };
 
-      {/* Buttons for user actions */}
-      <div className="hero-buttons">
-        <button><b>Login</b></button>
-        <button><b>Register</b></button>
+  const closeLoginModal = () => {
+    setIsLoginOpen(false);
+  };
+
+  const openRegisterModal = () => {
+    setIsRegisterOpen(true);
+  };
+
+  const closeRegisterModal = () => {
+    setIsRegisterOpen(false);
+  };
+
+  const handleLogin = (credentials) => {
+    console.log("Logging in with:", credentials);
+    setIsLoginOpen(false); // Close the login modal after login
+  };
+
+  const handleRegister = (userData) => {
+    console.log("Registering user:", userData);
+    setIsRegisterOpen(false); // Close the register modal after registration
+  };
+
+  return (
+    <section
+      className="hero"
+      style={{ backgroundImage: `url(${require("../images/bg1.png")})` }}
+    >
+      <div className="hero-content">
+        <h1>Yummy sweeties delivered to your dining table!</h1>
+        <p>Delight in our exquisite cakes and treats, crafted to perfection for your enjoyment.</p>
+        <div className="hero-buttons">
+          <button onClick={openLoginModal}><b>Login</b></button>
+          <button onClick={openRegisterModal}><b>Register</b></button>
+        </div>
       </div>
-    </div>
+      <div className="hero-image">
+        <img src={image1} alt="HeroCakes" />
+      </div>
+      {/* Render the Modal components conditionally */}
+      {isLoginOpen && <Modal type="login" onClose={closeLoginModal} onLogin={handleLogin} />}
+      {isRegisterOpen && <Modal type="register" onClose={closeRegisterModal} onRegister={handleRegister} />}
+    </section>
+  );
+};
 
-    {/* Image within the hero section */}
-    <div className="hero-image">
-      <img src={image1} alt="HeroCakes" />
-    </div>
-  </section>
-);
-
-// Export the HeroSection component as the default export
 export default HeroSection;
