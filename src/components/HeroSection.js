@@ -22,8 +22,8 @@ const HeroSection = () => (
 
       {/* Buttons for user actions */}
       <div className="hero-buttons">
-        <button>Login</button>
-        <button>Register</button>
+        <button><b>Login</b></button>
+        <button><b>Register</b></button>
       </div>
     </div>
 

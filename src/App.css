@@ -1,6 +1,10 @@
 .App {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   padding: 20px;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 .App header {

@@ -1,0 +1,34 @@
+footer {
+  background-color: #fcb1bf;
+  padding: 20px;
+  text-align: center;
+}
+
+.social-media {
+  margin-bottom: 10px;
+}
+
+.social-media a {
+  margin: 0 10px;
+  color: #6a0572;
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.social-media a:hover {
+  color: #9a3695;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+  .contact-details {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .message-form {
+    max-width: 100%;
+  }
+}
+

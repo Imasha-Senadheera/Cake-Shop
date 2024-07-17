@@ -38,3 +38,19 @@
     margin-bottom: 2rem;
   }
 }
+
+.view-more-button {
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  background-color: #71b8e7;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 4rem;
+}
+
+.view-more-button:hover {
+  background-color: #349be4;
+}
