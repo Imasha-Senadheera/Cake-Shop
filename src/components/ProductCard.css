@@ -36,14 +36,13 @@
   padding-bottom: 1rem;
 }
 
-/* New CSS rule to position the button at the bottom */
 .product-info button {
   padding: 0.5rem 1rem;
   border: none;
   color: white;
   background-color: #ff85a2;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: background-color 0.3s ease;
   position: absolute;
   bottom: 1rem;
   left: 50%;
@@ -52,7 +51,6 @@
 
 .product-info button:hover {
   background-color: #ff5a7f;
-  transform: scale(1.05);
 }
 
 @media (max-width: 768px) {
