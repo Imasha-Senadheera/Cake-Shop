@@ -30,3 +30,9 @@ img {
 *::after {
   box-sizing: border-box;
 }
+
+/* index.css or App.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+

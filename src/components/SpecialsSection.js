@@ -30,7 +30,7 @@ const SpecialsSection = () => (
         image={image3}
       />
       <ProductCard
-        name="Blushing Strawberry Cake"
+        name="Blushing Strawberry Flavors Cake"
         price="Rs 5000.00"
         image={image4}
       />
