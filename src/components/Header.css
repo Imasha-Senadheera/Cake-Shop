@@ -5,7 +5,7 @@
   padding: 1rem 2rem;
   background-color: #ffccd5;
   color: #6a0572;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 1.5rem;
 }
 
@@ -30,7 +30,13 @@
 }
 
 .account-cart a {
-  margin-left: 1rem;
   color: #6a0572;
   text-decoration: none;
+  margin-left: 0.4rem;
+  margin-right: 3rem;
+}
+
+.account-cart a i {
+  font-size: 2.5rem; 
+  font-weight: bold; 
 }
