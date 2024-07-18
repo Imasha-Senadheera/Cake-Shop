@@ -1,5 +1,5 @@
 import React from "react";
-import "./ProductCard.css"; // Import the CSS file for styling
+import "../styles/ProductCard.css"; // Import the CSS file for styling
 
 const ProductCard = ({ name, price, image }) => (
   <div className="product-card">

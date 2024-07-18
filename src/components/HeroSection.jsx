@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./HeroSection.css";
+import "../styles/HeroSection.css";
 import Modal from "./Modal";
-import image1 from "../images/image1.png";
+import image1 from "../assets/images/image1.png";
 
 const HeroSection = () => {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
@@ -36,7 +36,7 @@ const HeroSection = () => {
   return (
     <section
       className="hero"
-      style={{ backgroundImage: `url(${require("../images/bg1.png")})` }}
+      style={{ backgroundImage: `url(${require("../assets/images/bg1.png")})` }}
     >
       <div className="hero-content">
         <h1>Yummy sweeties delivered to your dining table!</h1>

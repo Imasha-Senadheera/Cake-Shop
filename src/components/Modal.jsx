@@ -1,5 +1,5 @@
 import React from "react";
-import "./Modal.css";
+import "../styles/Modal.css";
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm"; // Import the RegisterForm component
 
