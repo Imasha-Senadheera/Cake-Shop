@@ -9,6 +9,8 @@ const ProductCard = ({ name, price, image }) => (
     <div className="product-info">
       <h3>{name}</h3>
       <p>{price}</p>
+    </div>
+    <div className="order-button">
       <button>Order This</button>
     </div>
   </div>

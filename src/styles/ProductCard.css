@@ -1,52 +1,67 @@
 .product-card {
-  border: 1px solid #d3c1e5;
-  padding: 1rem;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1rem; /* Adjust padding if needed */
   background-color: #ffffff;
   text-align: center;
-  width: 250px;
-  height: 400px;
-  margin-top: 1rem;
+  width: 220px;
+  height: 400px; /* Reduced height */
+  margin: 1rem auto;
   position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
 }
 
 .product-image {
-  margin-bottom: 1rem;
+  margin-bottom: 0;
 }
 
 .product-image img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
 }
 
 .product-info {
-  margin-top: -1rem;
+  padding-bottom: 0; /* Remove padding bottom */
+  /* Optionally set max-height to control content overflow */
+  /* max-height: calc(350px - (padding-top + padding-bottom)); */
+  /* overflow-y: auto; */
 }
 
 .product-info h3 {
-  font-size: 1rem;
-  margin-top: 2rem;
+  font-size: 1.25rem;
+  margin-top: 0.25rem;
   color: #6a0572;
 }
 
 .product-info p {
-  font-size: 0.875rem;
-  margin-top: 1rem;
-  padding-bottom: 1rem;
+  font-size: 1rem;
+  color: #333;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem; 
+}
+
+.order-button {
+  margin-top: 0; /* Ensure there's no extra space */
+  padding-top: 0.5rem; /* Adjust this value to reveal the button */
 }
 
 .product-info button {
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1.5rem; /* Adjust padding to fit the shorter card */
   border: none;
+  border-radius: 5px;
   color: white;
   background-color: #ff85a2;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  position: absolute;
-  bottom: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
+  margin-top: 0; /* Remove top margin if necessary */
 }
 
 .product-info button:hover {
@@ -56,16 +71,14 @@
 @media (max-width: 768px) {
   .product-card {
     width: 100%;
-    height: auto;
     margin: 1rem 0;
   }
 
   .product-info {
-    position: static; 
+    padding: 1rem;
   }
 
   .product-info button {
-    position: static;
-    transform: none;
+    width: 100%; /* Make button full width */
   }
 }

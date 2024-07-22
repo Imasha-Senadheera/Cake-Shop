@@ -25,17 +25,17 @@ const SpecialsSection = () => (
         image={image2} // Assuming you have imported the image correctly
       />
       <ProductCard
-        name="Gummy Tosca Mixed Flavors Cake"
+        name="Gummy Tosca Flavors Cake"
         price="Rs 5000.00"
         image={image3}
       />
       <ProductCard
-        name="Blushing Strawberry Flavors Cake"
+        name="Blushing Strawberry Cake"
         price="Rs 5000.00"
         image={image4}
       />
       <ProductCard
-        name="Mystery Rose Choco Cream Cake"
+        name="Mystery Rose Cream Cake"
         price="Rs 5000.00"
         image={image5}
       />
@@ -45,27 +45,27 @@ const SpecialsSection = () => (
         image={image6}
       />
       <ProductCard
-        name="Blue Gummy Mixed Flavors Cake"
+        name="Blue Gummy Flavors Cake"
         price="Rs 5000.00"
         image={image7}
       />
       <ProductCard
-        name="Pink Blushing Cream Flavor Cake"
+        name="Pink Blushing Cream Cake"
         price="Rs 5000.00"
         image={image8}
       />
       <ProductCard
-        name="Mystery Purple Choco Cream Cake"
+        name="Mystery Purple Cream Cake"
         price="Rs 5000.00"
         image={image9}
       />
       <ProductCard
-        name="Pinky Cream Cherry Milk Cake"
+        name="Pinky Cream Cherry Rose Cake"
         price="Rs 5000.00"
         image={image10}
       />
       <ProductCard
-        name="Red Rose Tosca Mixed Flavors Cake"
+        name="Red Rose Tosca Flavors Cake"
         price="Rs 5000.00"
         image={image11}
       />
