@@ -7,7 +7,7 @@ function Header() {
     event.preventDefault(); // Prevent default anchor behavior
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" }); 
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -49,10 +49,10 @@ function Header() {
       </nav>
       <div className="account-cart">
         <a href="#my-account" className="person">
-          <i className="bi bi-person-fill"></i>{" "}
+          <i className="bi bi-person-fill"></i>
         </a>
         <a href="#cart" className="cart">
-          <i className="bi bi-cart-check-fill"></i>{" "}
+          <i className="bi bi-cart-check-fill"></i>
         </a>
       </div>
     </header>

@@ -40,18 +40,33 @@ const HeroSection = () => {
     >
       <div className="hero-content">
         <h1>Yummy sweeties delivered to your dining table!</h1>
-        <p>Delight in our exquisite cakes and treats, crafted to perfection for your enjoyment.</p>
+        <p>
+          Delight in our exquisite cakes and treats, crafted to perfection for
+          your enjoyment.
+        </p>
         <div className="hero-buttons">
-          <button onClick={openLoginModal}><b>Login</b></button>
-          <button onClick={openRegisterModal}><b>Register</b></button>
+          <button onClick={openLoginModal}>
+            <b>Login</b>
+          </button>
+          <button onClick={openRegisterModal}>
+            <b>Register</b>
+          </button>
         </div>
       </div>
       <div className="hero-image">
         <img src={image1} alt="HeroCakes" />
       </div>
       {/* Render the Modal components conditionally */}
-      {isLoginOpen && <Modal type="login" onClose={closeLoginModal} onLogin={handleLogin} />}
-      {isRegisterOpen && <Modal type="register" onClose={closeRegisterModal} onRegister={handleRegister} />}
+      {isLoginOpen && (
+        <Modal type="login" onClose={closeLoginModal} onLogin={handleLogin} />
+      )}
+      {isRegisterOpen && (
+        <Modal
+          type="register"
+          onClose={closeRegisterModal}
+          onRegister={handleRegister}
+        />
+      )}
     </section>
   );
 };
