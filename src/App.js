@@ -1,21 +1,33 @@
 import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
 import HeroSection from "./components/HeroSection";
 import SpecialsSection from "./components/SpecialsSection";
 import AboutUs from "./components/AboutUs";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import ProductsPage from "./components/ProductsPage";
 
 function App() {
   return (
-    <div className="App">
+    <Router>
       <Header />
-      <HeroSection id="home" />
-      <SpecialsSection id="specials-section" />
-      <AboutUs id="about-section" />
-      <Contact id="contact-section" />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <HeroSection />
+              <SpecialsSection />
+            </>
+          }
+        />
+        <Route path="/about" element={<AboutUs />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/products" element={<ProductsPage />} />
+      </Routes>
       <Footer />
-    </div>
+    </Router>
   );
 }
 
