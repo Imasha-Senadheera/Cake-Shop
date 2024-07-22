@@ -28,6 +28,12 @@
 .header nav ul li a {
   color: #6a0572;
   text-decoration: none;
+  transition: color 0.3s ease, text-decoration 0.3s ease; 
+}
+
+.header nav ul li a:hover {
+  color: #ff6f91; 
+  text-decoration: underline; 
 }
 
 .account-cart a {
@@ -35,11 +41,23 @@
   text-decoration: none;
   margin-left: 0.4rem;
   margin-right: 3rem;
+  transition: color 0.3s ease, transform 0.3s ease; 
 }
 
 .account-cart a i {
-  font-size: 2.5rem; 
-  font-weight: bold; 
+  font-size: 2.5rem;
+  font-weight: bold;
+  transition: color 0.3s ease, transform 0.3s ease; 
+}
+
+.account-cart a:hover {
+  color: #ff6f91; 
+  transform: scale(1.1); 
+}
+
+.account-cart a i:hover {
+  color: #ff6f91; 
+  transform: scale(1.1); 
 }
 
 @media (max-width: 768px) {
