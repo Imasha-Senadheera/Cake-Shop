@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import Header from "./Header"; // Import the Header component
-import Footer from "./Footer"; // Import the Footer component
 import ProductCard from "./ProductCard";
 import "../styles/ProductsPage.css";
 import image2 from "../assets/images/image2.jpg";
@@ -94,7 +92,6 @@ const ProductsPage = () => {
 
   return (
     <>
-      <Header /> {/* Add the Header component */}
       <section id="products-page">
         <div className="top-bar">
           <div className="search-bar">
@@ -151,7 +148,6 @@ const ProductsPage = () => {
           ))}
         </div>
       </section>
-      <Footer /> {/* Add the Footer component */}
     </>
   );
 };
