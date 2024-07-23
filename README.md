@@ -10,12 +10,14 @@ Welcome to the Cake Shop Web Application! This project is developed as a final p
 4. **Online Ordering**: Enables users to order cakes online.
 5. **User Reviews and Ratings**: Users can leave reviews and rate the cakes.
 6. **Promotions and Discounts**: Special offers and discounts are displayed.
+<br>
 
 ## User Roles
 
 - **Admin**: Manages the entire application, including product management and user management.
 - **Baker**: Handles orders and updates the status of the cakes.
 - **Customer**: Browses the catalog, places orders, and leaves reviews.
+<br>
 
 ## Installation
 
@@ -44,6 +46,7 @@ To get started with this project, follow these steps:
     ```bash
     npm start
     ```
+<br>
 
 ## Technologies Used
 
@@ -51,10 +54,12 @@ To get started with this project, follow these steps:
 - **Backend**: Node.js, Express.js
 - **Database**: MongoDB
 - **Styling**: CSS
+<br>
 
 ## Contributing
 
 I am continuously working on improving this project. Contributions are welcome! If you have any suggestions or feature requests, please feel free to open an issue or submit a pull request.
+<br>
 
 ## Project Structure
 
