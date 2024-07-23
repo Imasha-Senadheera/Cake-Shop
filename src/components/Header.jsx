@@ -1,49 +1,24 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../styles/Header.css";
 
 function Header() {
-  // Function to handle smooth scroll
-  const handleSmoothScroll = (event, id) => {
-    event.preventDefault(); // Prevent default anchor behavior
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <header className="header">
       <div className="logo">Cake Shop</div>
       <nav>
         <ul>
           <li>
-            <a href="#home" onClick={(e) => handleSmoothScroll(e, "home")}>
-              Home
-            </a>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <a
-              href="#specials-section"
-              onClick={(e) => handleSmoothScroll(e, "specials-section")}
-            >
-              Product
-            </a>
+            <Link to="/products">Product</Link>
           </li>
           <li>
-            <a
-              href="#about-section"
-              onClick={(e) => handleSmoothScroll(e, "about-section")}
-            >
-              About us
-            </a>
+          <a href="#about-section">About us</a>
           </li>
           <li>
-            <a
-              href="#contact-section"
-              onClick={(e) => handleSmoothScroll(e, "contact-section")}
-            >
-              Contact
-            </a>
+          <a href="#contact-section">Contact</a>
           </li>
         </ul>
       </nav>
@@ -51,9 +26,9 @@ function Header() {
         <a href="#my-account" className="person">
           <i className="bi bi-person-fill"></i>
         </a>
-        <a href="#cart" className="cart">
+        <Link to="/cart" className="cart">
           <i className="bi bi-cart-check-fill"></i>
-        </a>
+        </Link>
       </div>
     </header>
   );
