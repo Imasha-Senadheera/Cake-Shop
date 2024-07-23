@@ -11,7 +11,7 @@ const ProductCard = ({ name, price, image }) => (
       <p>{price}</p>
     </div>
     <div className="order-button">
-      <button>Order This</button>
+      <button>Add to Cart</button>
     </div>
   </div>
 );
