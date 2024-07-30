@@ -1,4 +1,7 @@
 import React from 'react';
+import ManageProducts from './ManageProducts';
+import ManageOrders from './ManageOrders';
+import ManageCustomers from './ManageCustomers';
 import '../styles/AdminPage.css';
 
 const AdminPage = () => {
@@ -11,14 +14,16 @@ const AdminPage = () => {
         <button>Manage Users</button>
       </div>
       <div className="admin-section">
-        <h2>View Site Analytics</h2>
-        <p>Access detailed site analytics and performance reports.</p>
-        <button>View Analytics</button>
+        <h2>Manage Products</h2>
+        <ManageProducts />
       </div>
       <div className="admin-section">
-        <h2>Oversee Store Manager Activities</h2>
-        <p>Monitor and manage the activities of store managers.</p>
-        <button>Oversee Managers</button>
+        <h2>Manage Orders</h2>
+        <ManageOrders />
+      </div>
+      <div className="admin-section">
+        <h2>Manage Customers</h2>
+        <ManageCustomers />
       </div>
     </div>
   );
