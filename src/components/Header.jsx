@@ -1,8 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/Header.css";
 
 function Header() {
+  const navigate = useNavigate();
+
+  const handleScroll = (e, hash) => {
+    e.preventDefault();
+    navigate(hash);
+  };
+
   return (
     <header className="header">
       <div className="logo">Cake Shop</div>
@@ -12,13 +19,23 @@ function Header() {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/products">Product</Link>
+            <Link to="/products">Products</Link>
           </li>
           <li>
-          <a href="#about-section">About us</a>
+            <a
+              href="/#about-section"
+              onClick={(e) => handleScroll(e, "/#about-section")}
+            >
+              About Us
+            </a>
           </li>
           <li>
-          <a href="#contact-section">Contact</a>
+            <a
+              href="/#contact-section"
+              onClick={(e) => handleScroll(e, "/#contact-section")}
+            >
+              Contact
+            </a>
           </li>
         </ul>
       </nav>
