@@ -13,6 +13,7 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import ProductsPage from "./components/ProductsPage";
 import CartPage from "./components/CartPage";
+import AccountPage from "./components/AccountPage"; 
 import { CartProvider } from "./components/CartProvider";
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
         />
         <Route path="/products" element={<ProductsPage />} />
         <Route path="/cart" element={<CartPage />} />
+        <Route path="/account" element={<AccountPage />} /> 
       </Routes>
       <Footer />
     </CartProvider>

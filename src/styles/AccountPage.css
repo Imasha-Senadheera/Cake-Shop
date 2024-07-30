@@ -1,38 +1,190 @@
 .account-container {
-    padding: 20px;
-    font-family: 'Poppins', sans-serif;
+  max-width: 1000px; 
+  margin: 10px auto; 
+  padding: 80px;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9f0ff; 
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.account-header {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #6a0572;
+}
+
+.account-section {
+  margin-bottom: 20px;
+  border: 1px solid #ffccd5; 
+  border-radius: 10px;
+  padding: 15px;
+  background-color: #ffffff; 
+}
+
+.account-section.not-signed-in {
+  text-align: center;
+}
+
+.account-section h2 {
+  margin-bottom: 10px;
+  text-align: center;
+  color: #6a0572; 
+}
+
+.account-section p {
+  text-align: center;
+  color: #555; 
+}
+
+.auth-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px; 
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.account-section button {
+  background-color: #ff6f91;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.account-section button:hover {
+  background-color: #ff4f70; 
+  transform: scale(1.05);
+}
+
+/* Header Styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #ffccd5; /* Light pink */
+  color: #6a0572; /* Deep purple */
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+}
+
+.header .logo {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-left: 1rem;
+}
+
+.header nav ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+.header nav ul li {
+  margin: 0 1rem;
+}
+
+.header nav ul li a {
+  color: #6a0572; /* Deep purple */
+  text-decoration: none;
+  transition: color 0.3s ease, text-decoration 0.3s ease; 
+}
+
+.header nav ul li a:hover {
+  color: #ff6f91; /* Bright pink */
+  text-decoration: underline; 
+}
+
+.account-cart a {
+  color: #6a0572; /* Deep purple */
+  text-decoration: none;
+  margin-left: 0.4rem;
+  margin-right: 3rem;
+  transition: color 0.3s ease, transform 0.3s ease; 
+}
+
+.account-cart a i {
+  font-size: 2.5rem;
+  font-weight: bold;
+  transition: color 0.3s ease, transform 0.3s ease; 
+}
+
+.account-cart a:hover {
+  color: #ff6f91; /* Bright pink */
+  transform: scale(1.1); 
+}
+
+.account-cart a i:hover {
+  color: #ff6f91; /* Bright pink */
+  transform: scale(1.1); 
+}
+
+/* Additional Media Query for very small screens */
+@media (max-width: 480px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem;
   }
-  
-  .account-header {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #333;
+
+  .header .logo {
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
   }
-  
-  .account-section {
-    margin-bottom: 20px;
+
+  .header nav ul {
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin: 0;
   }
-  
-  .account-section h2 {
-    margin-bottom: 10px;
-    color: #555;
+
+  .header nav ul li {
+    margin: 0.5rem 0;
   }
-  
-  .account-section p {
-    color: #777;
+
+  .account-cart {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0.5rem 0;
   }
-  
-  .account-section button {
-    background-color: #17a2b8;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 16px;
+
+  .account-cart a {
+    margin: 0 0.5rem;
   }
-  
-  .account-section button:hover {
-    background-color: #138496;
+}
+
+/* Existing Media Query for screens below 768px */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
   }
-  
+
+  .header .logo {
+    font-size: 1.5rem;
+  }
+
+  .header nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header nav ul li {
+    margin: 0.5rem 0;
+  }
+
+  .account-cart a {
+    margin: 0.5rem 0;
+  }
+}
