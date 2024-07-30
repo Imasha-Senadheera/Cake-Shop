@@ -47,7 +47,7 @@ function Header() {
         </ul>
       </nav>
       <div className="account-cart">
-        <a href="#my-account" className="person">
+        <a href="/account" className="person">
           <i className="bi bi-person-fill"></i>
         </a>
         <Link to="/cart" className="cart">
