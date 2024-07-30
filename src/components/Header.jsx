@@ -1,13 +1,20 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "../styles/Header.css";
+import { useCart } from "./CartProvider"; // Import the useCart hook
+import "../styles/Header.css"; // Ensure this file exists
 
 function Header() {
   const navigate = useNavigate();
+  const { cartItems } = useCart();
 
   const handleScroll = (e, hash) => {
     e.preventDefault();
     navigate(hash);
+  };
+
+  // Calculate total number of items in the cart
+  const getTotalItems = () => {
+    return cartItems.reduce((total, item) => total + item.quantity, 0);
   };
 
   return (
@@ -40,11 +47,14 @@ function Header() {
         </ul>
       </nav>
       <div className="account-cart">
-        <Link to="/account" className="person"> 
+        <a href="#my-account" className="person">
           <i className="bi bi-person-fill"></i>
-        </Link>
+        </a>
         <Link to="/cart" className="cart">
           <i className="bi bi-cart-check-fill"></i>
+          {getTotalItems() > 0 && (
+            <span className="cart-item-count">{getTotalItems()}</span>
+          )}
         </Link>
       </div>
     </header>
