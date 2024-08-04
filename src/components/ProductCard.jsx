@@ -1,6 +1,6 @@
 import React from "react";
-import { useCart } from "./CartProvider"; // Correct import path
-import "../styles/ProductCard.css"; // Import the CSS file for styling
+import { useCart } from "./CartProvider";
+import "../styles/ProductCard.css";
 
 const ProductCard = ({ name, price, image }) => {
   const { handleAddToCart } = useCart();

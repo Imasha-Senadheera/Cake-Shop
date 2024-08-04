@@ -16,7 +16,7 @@
   justify-content: center;
   align-items: center;
   height: 100%;
-  background-color: rgba(240, 240, 240, 0.95); 
+  background-color: rgba(240, 240, 240, 0.95);
 }
 
 .register-form-wrapper {
@@ -24,19 +24,19 @@
 }
 
 .register-form {
-  background-color: #ffffff; 
+  background-color: #ffffff;
   padding: 2rem;
-  border-radius: 10px; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-  width: 100%; 
-  max-width: 300px; 
-  text-align: left; 
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 300px;
+  text-align: left;
 }
 
 .register-form h2 {
   margin-bottom: 1.5rem;
-  color: #6a0572; 
-  text-align: center; 
+  color: #6a0572;
+  text-align: center;
 }
 
 .form-group {
@@ -46,30 +46,30 @@
 .form-group label {
   display: block;
   margin-bottom: 0.5rem;
-  color: #333333; 
+  color: #333333;
 }
 
 .form-group input {
   width: 100%;
   padding: 0.5rem;
-  border: 1px solid #d3c1e5; 
-  border-radius: 4px; 
-  box-sizing: border-box; 
+  border: 1px solid #d3c1e5;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
 button[type="submit"] {
   padding: 0.75rem 1.5rem;
   border: none;
-  background-color: #ff85a2; 
+  background-color: #ff85a2;
   color: white;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
-  border-radius: 4px; 
-  width: 100%; 
+  border-radius: 4px;
+  width: 100%;
   margin-top: 1rem;
 }
 
 button[type="submit"]:hover {
-  background-color: #f4708f; 
-  transform: scale(1.05); 
+  background-color: #f4708f;
+  transform: scale(1.05);
 }

@@ -1,8 +1,8 @@
-import React from 'react';
-import ManageProducts from './ManageProducts';
-import ManageOrders from './ManageOrders';
-import ManageCustomers from './ManageCustomers';
-import '../styles/AdminPage.css';
+import React from "react";
+import ManageProducts from "./ManageProducts";
+import ManageOrders from "./ManageOrders";
+import ManageCustomers from "./ManageCustomers";
+import "../styles/AdminPage.css";
 
 const AdminPage = () => {
   return (

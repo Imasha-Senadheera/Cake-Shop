@@ -1,6 +1,6 @@
 import React from "react";
-import { useCart } from "./CartProvider"; // Correct import path
-import "../styles/CartPage.css"; // Ensure this file exists
+import { useCart } from "./CartProvider"; 
+import "../styles/CartPage.css"; 
 
 const CartPage = () => {
   const { cartItems, handleRemove, handleQuantityChange } = useCart();

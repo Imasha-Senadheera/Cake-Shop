@@ -1,11 +1,11 @@
 .account-container {
-  max-width: 1000px; 
-  margin: 10px auto; 
+  max-width: 1000px;
+  margin: 10px auto;
   padding: 80px;
-  font-family: 'Poppins', sans-serif;
-  background-color: #f9f0ff; 
+  font-family: "Poppins", sans-serif;
+  background-color: #f9f0ff;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .account-header {
@@ -16,10 +16,10 @@
 
 .account-section {
   margin-bottom: 20px;
-  border: 1px solid #ffccd5; 
+  border: 1px solid #ffccd5;
   border-radius: 10px;
   padding: 15px;
-  background-color: #ffffff; 
+  background-color: #ffffff;
 }
 
 .account-section.not-signed-in {
@@ -29,18 +29,18 @@
 .account-section h2 {
   margin-bottom: 10px;
   text-align: center;
-  color: #6a0572; 
+  color: #6a0572;
 }
 
 .account-section p {
   text-align: center;
-  color: #555; 
+  color: #555;
 }
 
 .auth-buttons {
   display: flex;
   justify-content: center;
-  gap: 10px; 
+  gap: 10px;
 }
 
 .button-container {
@@ -61,7 +61,7 @@
 }
 
 .account-section button:hover {
-  background-color: #ff4f70; 
+  background-color: #ff4f70;
   transform: scale(1.05);
 }
 
@@ -73,7 +73,7 @@
   padding: 1rem 2rem;
   background-color: #ffccd5; /* Light pink */
   color: #6a0572; /* Deep purple */
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 1.5rem;
 }
 
@@ -96,12 +96,12 @@
 .header nav ul li a {
   color: #6a0572; /* Deep purple */
   text-decoration: none;
-  transition: color 0.3s ease, text-decoration 0.3s ease; 
+  transition: color 0.3s ease, text-decoration 0.3s ease;
 }
 
 .header nav ul li a:hover {
   color: #ff6f91; /* Bright pink */
-  text-decoration: underline; 
+  text-decoration: underline;
 }
 
 .account-cart a {
@@ -109,23 +109,23 @@
   text-decoration: none;
   margin-left: 0.4rem;
   margin-right: 3rem;
-  transition: color 0.3s ease, transform 0.3s ease; 
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .account-cart a i {
   font-size: 2.5rem;
   font-weight: bold;
-  transition: color 0.3s ease, transform 0.3s ease; 
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .account-cart a:hover {
   color: #ff6f91; /* Bright pink */
-  transform: scale(1.1); 
+  transform: scale(1.1);
 }
 
 .account-cart a i:hover {
   color: #ff6f91; /* Bright pink */
-  transform: scale(1.1); 
+  transform: scale(1.1);
 }
 
 /* Additional Media Query for very small screens */

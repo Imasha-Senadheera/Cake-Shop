@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "./CartProvider"; // Import the useCart hook
-import "../styles/Header.css"; // Ensure this file exists
+import "../styles/Header.css";
 
 function Header() {
   const navigate = useNavigate();

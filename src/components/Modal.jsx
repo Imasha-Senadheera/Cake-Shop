@@ -14,7 +14,9 @@ const Modal = ({ isOpen, onClose, type, onLogin, onRegister }) => {
         </span>
         {/* Render different forms based on type prop */}
         {type === "login" && <LoginForm onLogin={onLogin} />}
-        {type === "register" && <RegisterForm onRegister={onRegister} onClose={onClose} />}
+        {type === "register" && (
+          <RegisterForm onRegister={onRegister} onClose={onClose} />
+        )}
       </section>
     </div>
   );
