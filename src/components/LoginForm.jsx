@@ -19,14 +19,15 @@ const LoginForm = ({ onLogin }) => {
         body: JSON.stringify({ email, password }),
       });
 
-      const data = await response.json();
-
-      if (response.ok) {
-        console.log("Login successful:", data);
-        onLogin(data); // Pass the data to the parent component if needed
-      } else {
+      if (!response.ok) {
+        const data = await response.json();
         setError(data.message || "Login failed. Please try again.");
+        return;
       }
+
+      const data = await response.json();
+      console.log("Login successful:", data);
+      onLogin(data); // Pass the data to the parent component if needed
     } catch (error) {
       setError("An error occurred. Please try again.");
       console.error("Error:", error);
@@ -39,20 +40,20 @@ const LoginForm = ({ onLogin }) => {
         <h2>Login</h2>
         {error && <p className="error-message">{error}</p>}
         <div className="form-group">
-          <label htmlFor="email">Email:</label>
+          <label htmlFor="loginEmail">Email:</label>
           <input
             type="email"
-            id="email"
+            id="loginEmail"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
         </div>
         <div className="form-group">
-          <label htmlFor="password">Password:</label>
+          <label htmlFor="loginPassword">Password:</label>
           <input
             type="password"
-            id="password"
+            id="loginPassword"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required

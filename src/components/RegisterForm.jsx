@@ -24,18 +24,19 @@ const RegisterForm = ({ onRegister, onClose }) => {
         body: JSON.stringify({ email, password }),
       });
 
-      const data = await response.json();
-
-      if (response.ok) {
-        console.log("Registration successful:", data);
-        onRegister(data); // Pass the data to the parent component if needed
-        setEmail("");
-        setPassword("");
-        setConfirmPassword("");
-        onClose(); // Close the modal after successful registration
-      } else {
+      if (!response.ok) {
+        const data = await response.json();
         setError(data.message || "Registration failed. Please try again.");
+        return;
       }
+
+      const data = await response.json();
+      console.log("Registration successful:", data);
+      onRegister(data); // Pass the data to the parent component if needed
+      setEmail("");
+      setPassword("");
+      setConfirmPassword("");
+      onClose(); // Close the modal after successful registration
     } catch (error) {
       setError("An error occurred. Please try again.");
       console.error("Error:", error);
@@ -45,33 +46,33 @@ const RegisterForm = ({ onRegister, onClose }) => {
   return (
     <div className="register-form-container">
       <form className="register-form" onSubmit={handleSubmit}>
+        <h2>Register</h2>
+        {error && <p className="error-message">{error}</p>}
         <div className="form-group">
-          <h2>Register</h2>
-          {error && <p className="error-message">{error}</p>}
-          <label htmlFor="email">Email:</label>
+          <label htmlFor="registerEmail">Email:</label>
           <input
             type="email"
-            id="email"
+            id="registerEmail"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
         </div>
         <div className="form-group">
-          <label htmlFor="password">Password:</label>
+          <label htmlFor="registerPassword">Password:</label>
           <input
             type="password"
-            id="password"
+            id="registerPassword"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
         </div>
         <div className="form-group">
-          <label htmlFor="confirmPassword">Confirm Password:</label>
+          <label htmlFor="registerConfirmPassword">Confirm Password:</label>
           <input
             type="password"
-            id="confirmPassword"
+            id="registerConfirmPassword"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
