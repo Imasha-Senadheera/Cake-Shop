@@ -14,10 +14,7 @@ app.use(express.json());
 
 // Connect to MongoDB
 mongoose
-  .connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(process.env.MONGO_URI)
   .then(() => {
     console.log("Connected to MongoDB");
   })
@@ -30,6 +27,26 @@ app.get("/", (req, res) => {
   res.send("API is running");
 });
 
+// Example route to get products
+app.get("/api/products", (req, res) => {
+  // Logic to get products (e.g., querying MongoDB)
+  res.send("Products endpoint");
+});
+
+// Example route to add a new product
+app.post("/api/products", (req, res) => {
+  // Logic to add a new product (e.g., saving to MongoDB)
+  const newProduct = req.body;
+  res.send(`Product added: ${JSON.stringify(newProduct)}`);
+});
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send("Something went wrong!");
+});
+
+// Start the server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });

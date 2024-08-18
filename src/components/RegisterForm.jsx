@@ -5,18 +5,41 @@ const RegisterForm = ({ onRegister, onClose }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (password !== confirmPassword) {
-      alert("Passwords do not match");
+      setError("Passwords do not match");
       return;
     }
-    onRegister({ email, password });
-    setEmail("");
-    setPassword("");
-    setConfirmPassword("");
-    onClose(); // Close the modal after registration
+
+    try {
+      const response = await fetch("http://localhost:5000/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        console.log("Registration successful:", data);
+        onRegister(data); // Pass the data to the parent component if needed
+        setEmail("");
+        setPassword("");
+        setConfirmPassword("");
+        onClose(); // Close the modal after successful registration
+      } else {
+        setError(data.message || "Registration failed. Please try again.");
+      }
+    } catch (error) {
+      setError("An error occurred. Please try again.");
+      console.error("Error:", error);
+    }
   };
 
   return (
@@ -24,6 +47,7 @@ const RegisterForm = ({ onRegister, onClose }) => {
       <form className="register-form" onSubmit={handleSubmit}>
         <div className="form-group">
           <h2>Register</h2>
+          {error && <p className="error-message">{error}</p>}
           <label htmlFor="email">Email:</label>
           <input
             type="email"
