@@ -1,68 +1,105 @@
+/* Main Container Styles */
 .account-container {
-  max-width: 1000px;
-  margin: 10px auto;
-  padding: 80px;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 40px;
   font-family: "Poppins", sans-serif;
-  background-color: #f9f0ff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.account-header {
-  text-align: center;
-  margin-bottom: 40px;
-  color: #6a0572;
-}
-
-.account-section {
-  margin-bottom: 20px;
-  border: 1px solid #ffccd5;
-  border-radius: 10px;
-  padding: 15px;
   background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-.account-section.not-signed-in {
+/* Welcome Container */
+.welcome-container {
   text-align: center;
+  margin-bottom: 20px;
 }
 
-.account-section h2 {
-  margin-bottom: 10px;
-  text-align: center;
-  color: #6a0572;
+.welcome-container h2 {
+  color: #6a0572; /* Deep purple */
 }
 
-.account-section p {
-  text-align: center;
-  color: #555;
-}
-
-.auth-buttons {
+.welcome-details {
   display: flex;
-  justify-content: center;
-  gap: 10px;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.button-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
+.welcome-details h3 {
+  color: #6a0572; /* Deep purple */
 }
 
-.account-section button {
+/* Section Styles */
+.profile-section,
+.orders-section {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile-section h3,
+.orders-section h3 {
+  color: #6a0572; /* Deep purple */
+}
+
+.profile-button,
+.orders-button {
   background-color: #ff6f91;
   color: white;
   padding: 10px 20px;
   border: none;
   cursor: pointer;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 14px;
   transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: 10px;
 }
 
-.account-section button:hover {
+.profile-button:hover,
+.orders-button:hover {
   background-color: #ff4f70;
   transform: scale(1.05);
+}
+
+/* Modal Styles */
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+  background-color: #ffffff;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  width: 90%;
+  max-width: 450px;
+  border-radius: 12px;
+  position: relative;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
 }
 
 /* Header Styles */
@@ -128,7 +165,7 @@
   transform: scale(1.1);
 }
 
-/* Additional Media Query for very small screens */
+/* Media Queries */
 @media (max-width: 480px) {
   .header {
     flex-direction: column;

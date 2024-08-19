@@ -2,13 +2,17 @@ import React, { useState } from "react";
 import "../styles/RegisterForm.css";
 
 const RegisterForm = ({ onRegister, onClose }) => {
+  const [name, setName] = useState(""); // State for name
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(null); // State for success message
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError(null); // Clear previous errors
+    setSuccess(null); // Clear previous success message
 
     if (password !== confirmPassword) {
       setError("Passwords do not match");
@@ -21,7 +25,7 @@ const RegisterForm = ({ onRegister, onClose }) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ name, email, password }), // Include name in the request body
       });
 
       if (!response.ok) {
@@ -32,7 +36,9 @@ const RegisterForm = ({ onRegister, onClose }) => {
 
       const data = await response.json();
       console.log("Registration successful:", data);
-      onRegister(data); // Pass the data to the parent component if needed
+      setSuccess("Registration successful!"); // Set success message
+      onRegister(data.user); // Pass the user data to the parent component
+      setName(""); // Clear the name field
       setEmail("");
       setPassword("");
       setConfirmPassword("");
@@ -48,6 +54,17 @@ const RegisterForm = ({ onRegister, onClose }) => {
       <form className="register-form" onSubmit={handleSubmit}>
         <h2>Register</h2>
         {error && <p className="error-message">{error}</p>}
+        {success && <p className="success-message">{success}</p>}
+        <div className="form-group">
+          <label htmlFor="registerName">Name:</label>
+          <input
+            type="text"
+            id="registerName"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+        </div>
         <div className="form-group">
           <label htmlFor="registerEmail">Email:</label>
           <input

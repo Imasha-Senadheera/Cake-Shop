@@ -5,10 +5,12 @@ const LoginForm = ({ onLogin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(null); // State for success message
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(null); // Clear previous errors
+    setSuccess(null); // Clear previous success message
 
     try {
       const response = await fetch("http://localhost:5000/api/login", {
@@ -27,7 +29,8 @@ const LoginForm = ({ onLogin }) => {
 
       const data = await response.json();
       console.log("Login successful:", data);
-      onLogin(data); // Pass the data to the parent component if needed
+      setSuccess("Login successful!"); // Set success message
+      onLogin(data.user); // Pass the user data to the parent component
     } catch (error) {
       setError("An error occurred. Please try again.");
       console.error("Error:", error);
@@ -39,6 +42,7 @@ const LoginForm = ({ onLogin }) => {
       <form className="login-form" onSubmit={handleSubmit}>
         <h2>Login</h2>
         {error && <p className="error-message">{error}</p>}
+        {success && <p className="success-message">{success}</p>}
         <div className="form-group">
           <label htmlFor="loginEmail">Email:</label>
           <input
