@@ -23,8 +23,9 @@ const HeroSection = () => {
     setIsRegisterOpen(false);
   };
 
-  const handleLogin = (credentials) => {
-    console.log("Logging in with:", credentials);
+  const handleLogin = (userData) => {
+    console.log("Logging in with:", userData);
+    // Example of how to handle login success, e.g., save token or set user state
     setIsLoginOpen(false); // Close the login modal after login
   };
 

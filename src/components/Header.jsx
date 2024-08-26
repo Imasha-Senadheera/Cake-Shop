@@ -1,9 +1,10 @@
+// src/components/Header.jsx
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "./CartProvider";
 import "../styles/Header.css";
 
-function Header({ user }) {
+function Header({ user, onLogout }) {
   const navigate = useNavigate();
   const { cartItems } = useCart();
 
@@ -12,7 +13,6 @@ function Header({ user }) {
     navigate(hash);
   };
 
-  // Calculate total number of items in the cart
   const getTotalItems = () => {
     return cartItems.reduce((total, item) => total + item.quantity, 0);
   };
@@ -27,7 +27,7 @@ function Header({ user }) {
         navigate("/store-manager");
       }
     } else {
-      navigate("/login");
+      navigate("/account"); // Redirect to account page if no role is matched
     }
   };
 

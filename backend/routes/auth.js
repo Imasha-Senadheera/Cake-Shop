@@ -2,12 +2,13 @@ const express = require("express");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
+const InviteCode = require("../models/InviteCode"); // Import InviteCode model
 
 const router = express.Router();
 
 // Register route
 router.post("/register", async (req, res) => {
-  const { email, password, name, role } = req.body;
+  const { email, password, name, role, inviteCode } = req.body;
 
   // Validate input fields
   if (!email || !password || !name) {
@@ -17,18 +18,35 @@ router.post("/register", async (req, res) => {
   }
 
   try {
+    // Validate invite code if provided
+    if (inviteCode) {
+      const code = await InviteCode.findOne({ code: inviteCode, used: false });
+      if (!code) {
+        return res.status(400).json({ message: "Invalid or used invite code" });
+      }
+      role = code.role; // Set role based on invite code
+      code.used = true; // Mark invite code as used
+      await code.save();
+    }
+
     let existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(400).json({ message: "User already exists" });
     }
 
-    const newUser = new User({ email, password, name, role });
-
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const newUser = new User({ email, password: hashedPassword, name, role });
     await newUser.save();
 
-    res
-      .status(201)
-      .json({ user: newUser, message: "User registered successfully" });
+    res.status(201).json({
+      user: {
+        id: newUser._id,
+        email: newUser.email,
+        name: newUser.name,
+        role: newUser.role,
+      },
+      message: "User registered successfully",
+    });
   } catch (error) {
     console.error("Error registering user:", error);
     res.status(500).json({ message: "Error registering user" });
@@ -57,9 +75,7 @@ router.post("/login", async (req, res) => {
     const token = jwt.sign(
       { id: user._id, role: user.role },
       process.env.JWT_SECRET,
-      {
-        expiresIn: "1h",
-      }
+      { expiresIn: "1h" }
     );
 
     res.json({
@@ -69,7 +85,7 @@ router.post("/login", async (req, res) => {
         name: user.name,
         email: user.email,
         role: user.role,
-      }, // Include role
+      },
     });
   } catch (error) {
     console.error("Server error during login:", error);

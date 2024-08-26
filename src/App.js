@@ -14,9 +14,10 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import ProductsPage from "./components/ProductsPage";
 import CartPage from "./components/CartPage";
-import AccountPage from "./components/AccountPage";
+import Account from "./components/Account";
 import AdminPage from "./components/AdminPage";
 import StoreManagerPage from "./components/StoreManagerPage";
+import CustomerPage from "./components/CustomerPage";
 import LoginForm from "./components/LoginForm";
 import RegisterForm from "./components/RegisterForm";
 import { CartProvider } from "./components/CartProvider";
@@ -64,14 +65,26 @@ function App() {
           element={
             user ? (
               user.role === "customer" ? (
-                <AccountPage />
+                <Navigate to="/customer" />
               ) : user.role === "admin" ? (
                 <Navigate to="/admin" />
-              ) : (
+              ) : user.role === "store manager" ? (
                 <Navigate to="/store-manager" />
+              ) : (
+                <Navigate to="/account" />
               )
             ) : (
-              <Navigate to="/login" />
+              <Account onLogin={handleLogin} onRegister={handleLogin} />
+            )
+          }
+        />
+        <Route
+          path="/customer"
+          element={
+            user && user.role === "customer" ? (
+              <CustomerPage user={user} onSignOut={handleLogout} />
+            ) : (
+              <Navigate to="/" />
             )
           }
         />
