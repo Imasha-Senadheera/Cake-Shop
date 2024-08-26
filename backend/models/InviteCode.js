@@ -9,3 +9,4 @@ const inviteCodeSchema = new mongoose.Schema({
 const InviteCode = mongoose.model("InviteCode", inviteCodeSchema);
 
 module.exports = InviteCode;
+

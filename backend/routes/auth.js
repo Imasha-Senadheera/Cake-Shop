@@ -2,13 +2,14 @@ const express = require("express");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
-const InviteCode = require("../models/InviteCode"); // Import InviteCode model
+const InviteCode = require("../models/InviteCode");
 
 const router = express.Router();
 
 // Register route
 router.post("/register", async (req, res) => {
-  const { email, password, name, role, inviteCode } = req.body;
+  const { email, password, name, inviteCode } = req.body;
+  let role = "customer"; // Default role
 
   // Validate input fields
   if (!email || !password || !name) {
@@ -29,15 +30,18 @@ router.post("/register", async (req, res) => {
       await code.save();
     }
 
-    let existingUser = await User.findOne({ email });
+    // Check if user already exists
+    const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(400).json({ message: "User already exists" });
     }
 
+    // Hash password and create new user
     const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = new User({ email, password: hashedPassword, name, role });
     await newUser.save();
 
+    // Respond with success message and user details
     res.status(201).json({
       user: {
         id: newUser._id,

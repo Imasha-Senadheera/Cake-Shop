@@ -8,7 +8,7 @@ const RegisterForm = ({ onRegister, onClose }) => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
-  const [inviteCode, setInviteCode] = useState(""); // For admin/store manager registration
+  const [inviteCode, setInviteCode] = useState(""); 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
