@@ -4,6 +4,7 @@ import "../styles/LoginForm.css";
 const LoginForm = ({ onLogin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [role, setRole] = useState("customer"); // State for role
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null); // State for success message
 
@@ -18,7 +19,7 @@ const LoginForm = ({ onLogin }) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email, password, role }), // Include role in the request body
       });
 
       if (!response.ok) {
@@ -62,6 +63,19 @@ const LoginForm = ({ onLogin }) => {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
+        </div>
+        <div className="form-group">
+          <label htmlFor="loginRole">Role:</label>
+          <select
+            id="loginRole"
+            value={role}
+            onChange={(e) => setRole(e.target.value)}
+            required
+          >
+            <option value="customer">Customer</option>
+            <option value="admin">Admin</option>
+            <option value="store manager">Store Manager</option>
+          </select>
         </div>
         <button type="submit">Login</button>
       </form>

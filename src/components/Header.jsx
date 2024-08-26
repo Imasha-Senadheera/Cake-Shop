@@ -1,9 +1,9 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useCart } from "./CartProvider"; // Import the useCart hook
+import { useCart } from "./CartProvider";
 import "../styles/Header.css";
 
-function Header() {
+function Header({ user }) {
   const navigate = useNavigate();
   const { cartItems } = useCart();
 
@@ -15,6 +15,20 @@ function Header() {
   // Calculate total number of items in the cart
   const getTotalItems = () => {
     return cartItems.reduce((total, item) => total + item.quantity, 0);
+  };
+
+  const handleAccountClick = () => {
+    if (user) {
+      if (user.role === "customer") {
+        navigate("/account");
+      } else if (user.role === "admin") {
+        navigate("/admin");
+      } else if (user.role === "store manager") {
+        navigate("/store-manager");
+      }
+    } else {
+      navigate("/login");
+    }
   };
 
   return (
@@ -47,7 +61,7 @@ function Header() {
         </ul>
       </nav>
       <div className="account-cart">
-        <a href="/account" className="person">
+        <a onClick={handleAccountClick} className="person">
           <i className="bi bi-person-fill"></i>
         </a>
         <Link to="/cart" className="cart">

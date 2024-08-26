@@ -2,21 +2,46 @@ import React, { useState } from "react";
 import "../styles/RegisterForm.css";
 
 const RegisterForm = ({ onRegister, onClose }) => {
-  const [name, setName] = useState(""); // State for name
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState(null);
-  const [success, setSuccess] = useState(null); // State for success message
+  const [success, setSuccess] = useState(null);
+  const [inviteCode, setInviteCode] = useState(""); // For admin/store manager registration
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(null); // Clear previous errors
-    setSuccess(null); // Clear previous success message
+    setError(null);
+    setSuccess(null);
 
     if (password !== confirmPassword) {
       setError("Passwords do not match");
       return;
+    }
+
+    let role = "customer"; // Default role
+
+    if (inviteCode) {
+      // If an invite code is provided, validate it on the server
+      const response = await fetch(
+        "http://localhost:5000/api/validate-invite",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ inviteCode }),
+        }
+      );
+
+      if (!response.ok) {
+        setError("Invalid invite code.");
+        return;
+      }
+
+      const data = await response.json();
+      role = data.role; // Role based on invite code (admin or store manager)
     }
 
     try {
@@ -25,7 +50,7 @@ const RegisterForm = ({ onRegister, onClose }) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ name, email, password }), // Include name in the request body
+        body: JSON.stringify({ name, email, password, role }),
       });
 
       if (!response.ok) {
@@ -36,13 +61,13 @@ const RegisterForm = ({ onRegister, onClose }) => {
 
       const data = await response.json();
       console.log("Registration successful:", data);
-      setSuccess("Registration successful!"); // Set success message
-      onRegister(data.user); // Pass the user data to the parent component
-      setName(""); // Clear the name field
+      setSuccess("Registration successful!");
+      onRegister(data.user);
+      setName("");
       setEmail("");
       setPassword("");
       setConfirmPassword("");
-      onClose(); // Close the modal after successful registration
+      onClose();
     } catch (error) {
       setError("An error occurred. Please try again.");
       console.error("Error:", error);
@@ -93,6 +118,18 @@ const RegisterForm = ({ onRegister, onClose }) => {
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
+          />
+        </div>
+        {/* Optional: Only visible for admin/store manager registration */}
+        <div className="form-group">
+          <label htmlFor="inviteCode">
+            Invite Code (for Admin/Store Manager):
+          </label>
+          <input
+            type="text"
+            id="inviteCode"
+            value={inviteCode}
+            onChange={(e) => setInviteCode(e.target.value)}
           />
         </div>
         <button type="submit">Register</button>
