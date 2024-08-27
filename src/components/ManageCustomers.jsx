@@ -1,20 +1,31 @@
-// src/components/ManageCustomers.js
+// components/ManageCustomers.jsx
 import React, { useState, useEffect } from "react";
 
 const ManageCustomers = () => {
   const [customers, setCustomers] = useState([]);
   const [showCustomers, setShowCustomers] = useState(false);
+  const [error, setError] = useState(null);
 
-  // Fetch customer data
   useEffect(() => {
     if (showCustomers) {
       const fetchCustomers = async () => {
         try {
-          const response = await fetch("/api/customers"); // Adjust the URL to your backend endpoint
-          const data = await response.json();
-          setCustomers(data);
+          const response = await fetch("/api/users");
+
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+
+          const text = await response.text(); // Get the response as text
+          console.log("Response text:", text); // Log the response text
+
+          const data = JSON.parse(text); // Try to parse JSON
+          console.log("Parsed data:", data); // Log the parsed data
+
+          setCustomers(data.filter((user) => user.role === "customer"));
         } catch (error) {
           console.error("Error fetching customers:", error);
+          setError("Failed to fetch customers. Please try again later.");
         }
       };
 
@@ -30,10 +41,7 @@ const ManageCustomers = () => {
       >
         View Customers
       </button>
-      <button style={{ margin: "0 0 10px 0" }}>
-        Manage Customer Information
-      </button>
-
+      {error && <p>{error}</p>}
       {showCustomers && (
         <div>
           <h3>Customer List</h3>
@@ -43,19 +51,15 @@ const ManageCustomers = () => {
             <table>
               <thead>
                 <tr>
-                  <th>ID</th>
                   <th>Name</th>
                   <th>Email</th>
-                  <th>Phone</th>
                 </tr>
               </thead>
               <tbody>
                 {customers.map((customer) => (
-                  <tr key={customer.id}>
-                    <td>{customer.id}</td>
+                  <tr key={customer._id}>
                     <td>{customer.name}</td>
                     <td>{customer.email}</td>
-                    <td>{customer.phone}</td>
                   </tr>
                 ))}
               </tbody>

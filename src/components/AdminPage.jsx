@@ -1,3 +1,4 @@
+// components/AdminPage.jsx
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ManageProducts from "./ManageProducts";
@@ -8,7 +9,6 @@ import "../styles/AdminPage.css";
 const AdminPage = () => {
   const navigate = useNavigate();
 
-  // Check if the user is authenticated
   useEffect(() => {
     const user = localStorage.getItem("user");
     if (!user) {

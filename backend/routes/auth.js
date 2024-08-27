@@ -22,7 +22,7 @@ router.post("/register", async (req, res) => {
 
     const newUser = new User({
       email,
-      password, // Hash the password in the schema's pre-save hook
+      password, // Password will be hashed by the schema's pre-save hook
       name,
       role,
     });
@@ -84,10 +84,11 @@ router.post("/login", async (req, res) => {
   }
 });
 
-// Get all users (new route)
+// Get all users
 router.get("/users", async (req, res) => {
   try {
     const users = await User.find({}, "name email role"); // Adjust fields as needed
+    res.setHeader("Content-Type", "application/json"); // Ensure JSON response
     res.json(users);
   } catch (error) {
     console.error("Failed to fetch users:", error.message);

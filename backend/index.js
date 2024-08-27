@@ -2,14 +2,13 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const authRoutes = require("./routes/auth"); // Ensure this path is correct
 
 const app = express();
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors());
-app.use(express.json());
+app.use(express.json()); // For parsing application/json
 
 // Connect to MongoDB
 mongoose
@@ -24,7 +23,7 @@ mongoose
   });
 
 // Routes
-app.use("/api", authRoutes); // Mount authRoutes at /api endpoint
+app.use("/api", require("./routes/users")); // Ensure this path is correct
 
 // Start Server
 app.listen(PORT, () => {
