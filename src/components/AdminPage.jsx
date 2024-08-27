@@ -26,9 +26,8 @@ const AdminPage = () => {
       <h1 className="account-header">Admin Dashboard</h1>
 
       <div className="admin-section">
-        <h2>Manage User Accounts</h2>
-        <p>Oversee all user accounts and manage their roles and permissions.</p>
-        <button className="admin-button">Manage Users</button>
+        <h2>Manage Customers</h2>
+        <ManageCustomers />
       </div>
 
       <div className="admin-section">
@@ -39,11 +38,6 @@ const AdminPage = () => {
       <div className="admin-section">
         <h2>Manage Orders</h2>
         <ManageOrders />
-      </div>
-
-      <div className="admin-section">
-        <h2>Manage Customers</h2>
-        <ManageCustomers />
       </div>
 
       <div className="button-container">
