@@ -1,10 +1,10 @@
-// auth.js
 const express = require("express");
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 
 const router = express.Router();
 
+// Register a new user
 router.post("/register", async (req, res) => {
   const { email, password, name, role } = req.body;
 
@@ -43,6 +43,7 @@ router.post("/register", async (req, res) => {
   }
 });
 
+// Log in a user
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
@@ -80,6 +81,17 @@ router.post("/login", async (req, res) => {
   } catch (error) {
     console.error("Server error during login:", error.message);
     res.status(500).json({ message: "Internal server error" });
+  }
+});
+
+// Get all users (new route)
+router.get("/users", async (req, res) => {
+  try {
+    const users = await User.find({}, "name email role"); // Adjust fields as needed
+    res.json(users);
+  } catch (error) {
+    console.error("Failed to fetch users:", error.message);
+    res.status(500).json({ message: "Error fetching users" });
   }
 });
 
