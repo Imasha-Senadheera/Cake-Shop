@@ -1,17 +1,13 @@
+// auth.js
 const express = require("express");
-const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
-const InviteCode = require("../models/InviteCode");
 
 const router = express.Router();
 
-// Register route
 router.post("/register", async (req, res) => {
-  const { email, password, name, inviteCode } = req.body;
-  let role = "customer"; // Default role
+  const { email, password, name, role } = req.body;
 
-  // Validate input fields
   if (!email || !password || !name) {
     return res
       .status(400)
@@ -19,29 +15,19 @@ router.post("/register", async (req, res) => {
   }
 
   try {
-    // Validate invite code if provided
-    if (inviteCode) {
-      const code = await InviteCode.findOne({ code: inviteCode, used: false });
-      if (!code) {
-        return res.status(400).json({ message: "Invalid or used invite code" });
-      }
-      role = code.role; // Set role based on invite code
-      code.used = true; // Mark invite code as used
-      await code.save();
-    }
-
-    // Check if user already exists
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(400).json({ message: "User already exists" });
     }
 
-    // Hash password and create new user
-    const hashedPassword = await bcrypt.hash(password, 10);
-    const newUser = new User({ email, password: hashedPassword, name, role });
+    const newUser = new User({
+      email,
+      password, // Hash the password in the schema's pre-save hook
+      name,
+      role,
+    });
     await newUser.save();
 
-    // Respond with success message and user details
     res.status(201).json({
       user: {
         id: newUser._id,
@@ -52,12 +38,11 @@ router.post("/register", async (req, res) => {
       message: "User registered successfully",
     });
   } catch (error) {
-    console.error("Error registering user:", error);
+    console.error("Error registering user:", error.message);
     res.status(500).json({ message: "Error registering user" });
   }
 });
 
-// Login route
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
@@ -71,7 +56,8 @@ router.post("/login", async (req, res) => {
       return res.status(400).json({ message: "Invalid email or password" });
     }
 
-    const isMatch = await bcrypt.compare(password, user.password);
+    // Compare the provided password with the hashed password
+    const isMatch = await user.comparePassword(password);
     if (!isMatch) {
       return res.status(400).json({ message: "Invalid email or password" });
     }
@@ -92,7 +78,7 @@ router.post("/login", async (req, res) => {
       },
     });
   } catch (error) {
-    console.error("Server error during login:", error);
+    console.error("Server error during login:", error.message);
     res.status(500).json({ message: "Internal server error" });
   }
 });

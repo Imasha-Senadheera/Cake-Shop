@@ -10,27 +10,28 @@ const LoginForm = ({ onLogin }) => {
     e.preventDefault();
     setError(null); // Clear previous errors
 
+    const loginData = { email, password };
+
     try {
-      const response = await fetch("http://localhost:5000/api/login", {
+      const response = await fetch("http://localhost:4000/api/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify(loginData),
       });
 
-      if (!response.ok) {
+      if (response.ok) {
+        const data = await response.json();
+        console.log("Login successful:", data);
+        onLogin(data); // Pass the data to the parent component if needed
+      } else {
         const data = await response.json();
         setError(data.message || "Login failed. Please try again.");
-        return;
       }
-
-      const data = await response.json();
-      console.log("Login successful:", data);
-      onLogin(data); // Pass the data to the parent component if needed
     } catch (error) {
       setError("An error occurred. Please try again.");
-      console.error("Error:", error);
+      console.error("Fetch error:", error);
     }
   };
 

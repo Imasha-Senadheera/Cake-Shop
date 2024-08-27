@@ -8,7 +8,7 @@ const RegisterForm = ({ onRegister, onClose }) => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
-  const [inviteCode, setInviteCode] = useState(""); 
+  const [role, setRole] = useState("customer"); // Default role
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,32 +20,8 @@ const RegisterForm = ({ onRegister, onClose }) => {
       return;
     }
 
-    let role = "customer"; // Default role
-
-    if (inviteCode) {
-      // If an invite code is provided, validate it on the server
-      const response = await fetch(
-        "http://localhost:5000/api/validate-invite",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ inviteCode }),
-        }
-      );
-
-      if (!response.ok) {
-        setError("Invalid invite code.");
-        return;
-      }
-
-      const data = await response.json();
-      role = data.role; // Role based on invite code (admin or store manager)
-    }
-
     try {
-      const response = await fetch("http://localhost:5000/api/register", {
+      const response = await fetch("http://localhost:4000/api/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -120,17 +96,17 @@ const RegisterForm = ({ onRegister, onClose }) => {
             required
           />
         </div>
-        {/* Optional: Only visible for admin/store manager registration */}
         <div className="form-group">
-          <label htmlFor="inviteCode">
-            Invite Code (for Admin/Store Manager):
-          </label>
-          <input
-            type="text"
-            id="inviteCode"
-            value={inviteCode}
-            onChange={(e) => setInviteCode(e.target.value)}
-          />
+          <label htmlFor="role">Role:</label>
+          <select
+            id="role"
+            value={role}
+            onChange={(e) => setRole(e.target.value)}
+          >
+            <option value="customer">Customer</option>
+            <option value="admin">Admin</option>
+            <option value="store-manager">Store Manager</option>
+          </select>
         </div>
         <button type="submit">Register</button>
       </form>
