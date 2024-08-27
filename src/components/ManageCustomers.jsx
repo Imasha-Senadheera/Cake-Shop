@@ -3,9 +3,11 @@ import React from "react";
 const ManageCustomers = () => {
   return (
     <div>
-      <h2>Manage Customers</h2>
-      <button>View Customers</button>
-      <button>Manage Customer Information</button>
+      <p>View and manage customer details and their information.</p>
+      <button style={{ margin: "0 10px 10px 0" }}>View Customers</button>
+      <button style={{ margin: "0 0 10px 0" }}>
+        Manage Customer Information
+      </button>
     </div>
   );
 };

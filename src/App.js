@@ -3,8 +3,8 @@ import {
   BrowserRouter as Router,
   Route,
   Routes,
-  useLocation,
   Navigate,
+  useLocation,
 } from "react-router-dom";
 import Header from "./components/Header";
 import HeroSection from "./components/HeroSection";
@@ -36,11 +36,15 @@ function App() {
   }, [location]);
 
   const handleLogin = (userData) => {
-    setUser(userData); // Set the logged-in user data including role
+    setUser(userData.user); // Set the logged-in user data
+    localStorage.setItem("user", JSON.stringify(userData.user)); // Store user data in localStorage
+    localStorage.setItem("token", userData.token); // Store token in localStorage
   };
 
   const handleLogout = () => {
     setUser(null); // Clear user data on logout
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
   };
 
   return (
@@ -68,10 +72,10 @@ function App() {
                 <Navigate to="/customer" />
               ) : user.role === "admin" ? (
                 <Navigate to="/admin" />
-              ) : user.role === "store manager" ? (
+              ) : user.role === "store-manager" ? (
                 <Navigate to="/store-manager" />
               ) : (
-                <Navigate to="/account" />
+                <Navigate to="/" />
               )
             ) : (
               <Account onLogin={handleLogin} onRegister={handleLogin} />
@@ -97,7 +101,7 @@ function App() {
         <Route
           path="/store-manager"
           element={
-            user && user.role === "store manager" ? (
+            user && user.role === "store-manager" ? (
               <StoreManagerPage />
             ) : (
               <Navigate to="/" />

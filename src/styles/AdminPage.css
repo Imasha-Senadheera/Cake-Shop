@@ -1,37 +1,78 @@
-.admin-container {
-  padding: 20px;
+/* Main Container Styles */
+.account-container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 40px;
   font-family: "Poppins", sans-serif;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
 }
 
-.admin-header {
+/* Header Styles */
+.account-header {
   text-align: center;
   margin-bottom: 20px;
-  color: #333;
+  color: #6a0572; /* Deep purple */
 }
 
+/* Section Styles */
 .admin-section {
-  margin-bottom: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px; /* Add gap between sections */
+  width: 100%;
+  max-width: 800px; /* Control width for readability */
 }
 
 .admin-section h2 {
-  margin-bottom: 10px;
-  color: #555;
+  color: #6a0572; /* Deep purple */
 }
 
-.admin-section p {
-  color: #777;
-}
-
-.admin-section button {
-  background-color: #4caf50;
+/* Button Styles */
+.admin-button,
+.signout-button {
+  background-color: #ff6f91; /* Pink */
   color: white;
   padding: 10px 20px;
   border: none;
   cursor: pointer;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 14px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: 10px;
 }
 
-.admin-section button:hover {
-  background-color: #45a049;
+.admin-button:hover,
+.signout-button:hover {
+  background-color: #ff4f70; /* Darker pink */
+  transform: scale(1.05);
+}
+
+/* Additional Space for Sign Out Button */
+.button-container {
+  margin-top: 20px; /* Add space above the sign-out button */
+}
+
+/* Media Queries */
+@media (max-width: 480px) {
+  .account-container {
+    padding: 20px;
+  }
+
+  .admin-section {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .account-container {
+    padding: 30px;
+  }
 }

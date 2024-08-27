@@ -6,7 +6,6 @@ const CustomerPage = ({ user, onSignOut }) => {
   const navigate = useNavigate();
 
   const handleSignOut = () => {
-    // Clear user data from local storage and state
     localStorage.removeItem("user");
     onSignOut();
     navigate("/");

@@ -24,7 +24,7 @@ const LoginForm = ({ onLogin }) => {
       if (response.ok) {
         const data = await response.json();
         console.log("Login successful:", data);
-        onLogin(data); // Pass the data to the parent component if needed
+        onLogin(data); // Pass the data to the parent component
       } else {
         const data = await response.json();
         setError(data.message || "Login failed. Please try again.");
