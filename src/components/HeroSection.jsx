@@ -25,12 +25,13 @@ const HeroSection = () => {
 
   const handleLogin = (userData) => {
     console.log("Logging in with:", userData);
-    // Example of how to handle login success, e.g., save token or set user state
+    // Handle login success here (e.g., save token or set user state)
     setIsLoginOpen(false); // Close the login modal after login
   };
 
   const handleRegister = (userData) => {
     console.log("Registering user:", userData);
+    // Handle registration success here (e.g., save user data or send a welcome email)
     setIsRegisterOpen(false); // Close the register modal after registration
   };
 
@@ -45,14 +46,15 @@ const HeroSection = () => {
           Delight in our exquisite cakes and treats, crafted to perfection for
           your enjoyment.
         </p>
-        <div className="hero-buttons">
+        {/* Buttons are removed */}
+        {/* <div className="hero-buttons">
           <button onClick={openLoginModal}>
             <b>Login</b>
           </button>
           <button onClick={openRegisterModal}>
             <b>Register</b>
           </button>
-        </div>
+        </div> */}
       </div>
       <div className="hero-image">
         <img src={image1} alt="HeroCakes" />

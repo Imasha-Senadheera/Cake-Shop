@@ -9,7 +9,7 @@ const RegisterForm = ({ onRegister = () => {}, onClose = () => {} }) => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
-  const [role, setRole] = useState("customer"); // Default role
+  const [role, setRole] = useState("customer"); 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
