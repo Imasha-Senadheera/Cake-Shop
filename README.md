@@ -19,6 +19,15 @@ Welcome to the Cake Shop Web Application! This project is developed as a final p
 - **Customer**: Browses the catalog, places orders, and leaves reviews.
 <br>
 
+## Preview of the Web Application
+<br>
+
+### Home page
+<br>
+
+<img width="900" alt="1" src="https://github.com/user-attachments/assets/fa58e5b6-910e-486a-9f6d-b165bb377d77" > <br> <br> 
+<br>
+
 ## Installation
 
 To get started with this project, follow these steps:
