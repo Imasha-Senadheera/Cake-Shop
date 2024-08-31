@@ -84,8 +84,8 @@ router.post("/login", async (req, res) => {
   }
 });
 
-// Get all users
-router.get("/users", async (req, res) => {
+// Example route to get all users
+router.get("/", async (req, res) => {
   try {
     const users = await User.find({}, "name email role"); // Adjust fields as needed
     res.setHeader("Content-Type", "application/json"); // Ensure JSON response
