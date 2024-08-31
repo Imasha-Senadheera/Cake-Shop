@@ -25,7 +25,7 @@ const AdminPage = () => {
       <h1 className="account-header">Admin Dashboard</h1>
 
       <div className="admin-section">
-        <h2>Manage Customers</h2>
+        <h2>Manage Customers</h2><br></br>
         <ManageCustomers />
       </div>
 

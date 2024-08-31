@@ -7,9 +7,9 @@ const Modal = ({ isOpen, onClose, type, onLogin, onRegister }) => {
   const modalClass = isOpen ? "modal display-block" : "modal display-none";
 
   return (
-    <div className={modalClass}>
-      <section className="modal-main">
-        <span className="close" onClick={onClose}>
+    <div className={modalClass} aria-hidden={!isOpen}>
+      <section className="modal-main" aria-label="Modal">
+        <span className="close" onClick={onClose} aria-label="Close">
           &times;
         </span>
         {/* Render different forms based on type prop */}
