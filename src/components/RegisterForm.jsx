@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import "../styles/RegisterForm.css";
 
-const RegisterForm = ({ onRegister, onClose }) => {
+const RegisterForm = ({ onRegister = () => {}, onClose = () => {} }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -112,6 +113,12 @@ const RegisterForm = ({ onRegister, onClose }) => {
       </form>
     </div>
   );
+};
+
+// Define prop types
+RegisterForm.propTypes = {
+  onRegister: PropTypes.func.isRequired,
+  onClose: PropTypes.func, // Optional
 };
 
 export default RegisterForm;

@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import axiosInstance from "../utils/axiosInstance";
+import "../../styles/ViewCustomers.css"; // Correct import path
 
 const ViewCustomers = () => {
   const [users, setUsers] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get("/api/users"); // Ensure this endpoint returns all users
+        const response = await axiosInstance.get("/api/users");
         setUsers(response.data);
       } catch (error) {
         console.error("Error fetching users:", error);
+        setError("Error fetching users. Please try again later.");
       }
     };
 
@@ -18,9 +21,10 @@ const ViewCustomers = () => {
   }, []);
 
   return (
-    <div>
-      <h1>User Details</h1>
-      <table>
+    <div className="view-customers-container">
+      <h1>User Details</h1><br></br>
+      {error && <p className="error-message">{error}</p>}
+      <table className="customers-table">
         <thead>
           <tr>
             <th>Name</th>

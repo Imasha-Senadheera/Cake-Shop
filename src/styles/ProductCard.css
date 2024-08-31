@@ -29,10 +29,7 @@
 }
 
 .product-info {
-  padding-bottom: 0; /* Remove padding bottom */
-  /* Optionally set max-height to control content overflow */
-  /* max-height: calc(350px - (padding-top + padding-bottom)); */
-  /* overflow-y: auto; */
+  padding-bottom: 0; 
 }
 
 .product-info h3 {

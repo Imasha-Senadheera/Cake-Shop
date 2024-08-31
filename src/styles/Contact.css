@@ -6,7 +6,7 @@
 
 .contact-details {
   display: flex;
-  justify-content: center; /* Center content horizontally */
+  justify-content: center; 
   gap: 8rem;
 }
 

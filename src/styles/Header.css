@@ -48,7 +48,7 @@
   margin-left: 0.4rem;
   margin-right: 3rem;
   transition: color 0.3s ease, transform 0.3s ease;
-  position: relative; /* Add relative positioning for the badge */
+  position: relative; 
 }
 
 .account-cart a i {

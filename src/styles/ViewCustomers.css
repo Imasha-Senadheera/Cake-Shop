@@ -1,24 +1,48 @@
+/* Container for the view customers component */
 .view-customers-container {
-    margin-top: 20px;
-  }
-  
-  .customers-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .customers-table th, .customers-table td {
-    padding: 10px;
-    border: 1px solid #ddd;
-    text-align: left;
-  }
-  
-  .customers-table th {
-    background-color: #f4f4f4;
-  }
-  
-  .error-message {
-    color: red;
-    font-weight: bold;
-  }
-  
+  margin-top: 20px;
+  padding: 20px;
+}
+
+/* Styling for the table */
+.customers-table {
+  width: 100%;
+  border-collapse: collapse; /* Ensures borders are merged */
+}
+
+/* Table header styling */
+.customers-table th,
+.customers-table td {
+  padding: 12px; /* Adds spacing inside cells */
+  border: 1px solid #ddd; /* Light gray border for cell outlines */
+  text-align: left; /* Aligns text to the left in cells */
+}
+
+/* Table header styling */
+.customers-table th {
+  background-color: #f4f4f4; /* Light gray background for header */
+  font-weight: bold; /* Bold font for headers */
+  border-bottom: 2px solid #333; /* Darker bottom border for headers */
+}
+
+/* Table row styling for alternating colors */
+.customers-table tr:nth-child(even) {
+  background-color: #f9f9f9; /* Light gray background for even rows */
+}
+
+/* Table row styling for hover effect */
+.customers-table tr:hover {
+  background-color: #f1f1f1; /* Slightly darker background on hover */
+}
+
+/* Error message styling */
+.error-message {
+  color: red; /* Red text color for errors */
+  font-weight: bold; /* Bold font for error messages */
+  margin-top: 10px; /* Margin at the top of the error message */
+}
+
+/* Styling for h1 */
+.view-customers-container h1 {
+  color: #6a0572; /* Deep purple */
+}

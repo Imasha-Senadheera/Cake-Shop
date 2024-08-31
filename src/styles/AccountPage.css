@@ -16,18 +16,18 @@
 }
 
 .welcome-container h2 {
-  color: #6a0572; /* Deep purple */
+  color: #6a0572;
 }
 
 .welcome-details {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center the boxes horizontally */
+  align-items: center;
   gap: 20px;
 }
 
 .welcome-details h3 {
-  color: #6a0572; /* Deep purple */
+  color: #6a0572;
 }
 
 /* Section Styles */
@@ -38,19 +38,19 @@
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  width: 100%; /* Change this value to make the boxes wider */
-  max-width: 600px; /* You can adjust the maximum width */
-  margin: 0 auto 20px auto; /* Center the boxes and add margin */
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto 20px auto;
 }
 
 .profile-section h3,
 .orders-section h3 {
-  color: #6a0572; /* Deep purple */
+  color: #6a0572;
 }
 
 .profile-button,
 .orders-button {
-  background-color: #ff6f91; /* Pink */
+  background-color: #ff6f91;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -63,7 +63,7 @@
 
 .profile-button:hover,
 .orders-button:hover {
-  background-color: #ff4f70; /* Darker pink */
+  background-color: #ff4f70;
   transform: scale(1.05);
 }
 
@@ -112,8 +112,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: #ffccd5; /* Light pink */
-  color: #6a0572; /* Deep purple */
+  background-color: #ffccd5;
+  color: #6a0572;
   font-family: "Poppins", sans-serif;
   font-size: 1.5rem;
 }
@@ -135,18 +135,18 @@
 }
 
 .header nav ul li a {
-  color: #6a0572; /* Deep purple */
+  color: #6a0572;
   text-decoration: none;
   transition: color 0.3s ease, text-decoration 0.3s ease;
 }
 
 .header nav ul li a:hover {
-  color: #ff6f91; /* Bright pink */
+  color: #ff6f91;
   text-decoration: underline;
 }
 
 .account-cart a {
-  color: #6a0572; /* Deep purple */
+  color: #6a0572;
   text-decoration: none;
   margin-left: 0.4rem;
   margin-right: 3rem;
@@ -160,12 +160,12 @@
 }
 
 .account-cart a:hover {
-  color: #ff6f91; /* Bright pink */
+  color: #ff6f91;
   transform: scale(1.1);
 }
 
 .account-cart a i:hover {
-  color: #ff6f91; /* Bright pink */
+  color: #ff6f91;
   transform: scale(1.1);
 }
 
@@ -176,7 +176,7 @@
 }
 
 .account-section.not-signed-in h2 {
-  color: #6a0572; /* Deep purple */
+  color: #6a0572;
 }
 
 .account-section.not-signed-in p {
@@ -191,7 +191,7 @@
 }
 
 .auth-button {
-  background-color: #ff6f91; /* Pink */
+  background-color: #ff6f91;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -202,7 +202,7 @@
 }
 
 .auth-button:hover {
-  background-color: #ff4f70; /* Darker pink */
+  background-color: #ff4f70;
   transform: scale(1.05);
 }
 
