@@ -70,46 +70,6 @@ To get started with this project, follow these steps:
 I am continuously working on improving this project. Contributions are welcome! If you have any suggestions or feature requests, please feel free to open an issue or submit a pull request.
 <br>
 
-## Project Structure
-
-The project is organized as follows:
-```bash
-src/
-│
-├── assets/
-│
-├── components/
-│ ├── AboutUs.jsx
-│ ├── Contact.jsx
-│ ├── Footer.jsx
-│ ├── Header.jsx
-│ ├── HeroSection.jsx
-│ ├── LoginForm.jsx
-│ ├── Modal.jsx
-│ ├── ProductCard.jsx
-│ ├── ProductsPage.jsx
-│ ├── RegisterForm.jsx
-│ ├── SpecialsSection.jsx
-│
-├── styles/
-│ ├── AboutUs.css
-│ ├── Contact.css
-│ ├── Footer.css
-│ ├── Header.css
-│ ├── HeroSection.css
-│ ├── LoginForm.css
-│ ├── Modal.css
-│ ├── ProductCard.css
-│ ├── ProductsPage.css
-│ ├── RegisterForm.css
-│ ├── SpecialsSection.css
-│
-├── App.css
-├── App.js
-└── App.test.js 
- ```
-
----
 
 Thank you for checking out the Cake Shop Web Application! Stay tuned for more updates and features!
 
