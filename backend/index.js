@@ -23,7 +23,7 @@ mongoose
   });
 
 // Routes
-app.use("/api", require("./routes/auth")); 
+app.use("/api", require("./routes/auth"));
 
 // Start Server
 app.listen(PORT, () => {

@@ -2,12 +2,12 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ManageProducts from "./ManageProducts";
 import ManageOrders from "./ManageOrders";
-import "../styles/StoreManagerPage.css";
+import ManageCustomers from "./ManageCustomers";
+import "../../styles/AdminPage.css";
 
-const StoreManagerPage = () => {
+const AdminPage = () => {
   const navigate = useNavigate();
 
-  // Check if the user is authenticated
   useEffect(() => {
     const user = localStorage.getItem("user");
     if (!user) {
@@ -22,14 +22,19 @@ const StoreManagerPage = () => {
 
   return (
     <div className="account-container">
-      <h1 className="account-header">Store Manager Dashboard</h1>
+      <h1 className="account-header">Admin Dashboard</h1>
 
-      <div className="manager-section">
+      <div className="admin-section">
+        <h2>Manage Customers</h2>
+        <ManageCustomers />
+      </div>
+
+      <div className="admin-section">
         <h2>Manage Products</h2>
         <ManageProducts />
       </div>
 
-      <div className="manager-section">
+      <div className="admin-section">
         <h2>Manage Orders</h2>
         <ManageOrders />
       </div>
@@ -43,4 +48,4 @@ const StoreManagerPage = () => {
   );
 };
 
-export default StoreManagerPage;
+export default AdminPage;

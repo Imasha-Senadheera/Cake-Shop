@@ -1,14 +1,13 @@
-// components/AdminPage.jsx
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import ManageProducts from "./ManageProducts";
-import ManageOrders from "./ManageOrders";
-import ManageCustomers from "./ManageCustomers";
-import "../styles/AdminPage.css";
+import ManageProducts from "../AdminPage/ManageProducts";
+import ManageOrders from "../AdminPage/ManageOrders";
+import "../../styles/StoreManagerPage.css";
 
-const AdminPage = () => {
+const StoreManagerPage = () => {
   const navigate = useNavigate();
 
+  // Check if the user is authenticated
   useEffect(() => {
     const user = localStorage.getItem("user");
     if (!user) {
@@ -23,19 +22,14 @@ const AdminPage = () => {
 
   return (
     <div className="account-container">
-      <h1 className="account-header">Admin Dashboard</h1>
+      <h1 className="account-header">Store Manager Dashboard</h1>
 
-      <div className="admin-section">
-        <h2>Manage Customers</h2>
-        <ManageCustomers />
-      </div>
-
-      <div className="admin-section">
+      <div className="manager-section">
         <h2>Manage Products</h2>
         <ManageProducts />
       </div>
 
-      <div className="admin-section">
+      <div className="manager-section">
         <h2>Manage Orders</h2>
         <ManageOrders />
       </div>
@@ -49,4 +43,4 @@ const AdminPage = () => {
   );
 };
 
-export default AdminPage;
+export default StoreManagerPage;

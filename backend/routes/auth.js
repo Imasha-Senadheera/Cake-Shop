@@ -84,15 +84,15 @@ router.post("/login", async (req, res) => {
   }
 });
 
-// Example route to get all users
-router.get("/", async (req, res) => {
+// Route to get all customers
+router.get("/users", async (req, res) => {
   try {
-    const users = await User.find({}, "name email role"); // Adjust fields as needed
-    res.setHeader("Content-Type", "application/json"); // Ensure JSON response
-    res.json(users);
+    const customers = await User.find({ role: "customer" }, "name email role");
+    res.setHeader("Content-Type", "application/json");
+    res.json(customers);
   } catch (error) {
-    console.error("Failed to fetch users:", error.message);
-    res.status(500).json({ message: "Error fetching users" });
+    console.error("Failed to fetch customers:", error.message);
+    res.status(500).json({ message: "Error fetching customers" });
   }
 });
 

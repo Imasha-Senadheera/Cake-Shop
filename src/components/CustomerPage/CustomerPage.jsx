@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/AccountPage.css";
+import "../../styles/AccountPage.css";
 
 const CustomerPage = ({ user, onSignOut }) => {
   const navigate = useNavigate();
